@@ -2,26 +2,10 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/client/index.html"
+      "destination": "/index.html"
     }
   ],
-  "builds": [
-    {
-      "src": "client/src/index.html",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/public"
-      }
-    },
-    {
-      "src": "server/index.ts",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server/index.ts"
-    }
-  ]
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "client/dist/public"
 }
