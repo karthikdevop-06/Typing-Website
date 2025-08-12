@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Typing Test Design System */
+
+@layer base {
+  :root {
+    /* Light Theme */
+    --background: 240 10% 98%;
+    --foreground: 240 10% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 12%;
+
+    --primary: 240 9% 15%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 20%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 240 5% 94%;
+    --accent-foreground: 240 9% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 240 5% 84%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Theme - Monkeytype inspired */
+    --background: 240 8% 7%;
+    --foreground: 40 7% 83%;
+
+    --card: 240 8% 9%;
+    --card-foreground: 40 7% 83%;
+
+    --popover: 240 8% 9%;
+    --popover-foreground: 40 7% 83%;
+
+    --primary: 40 7% 83%;
+    --primary-foreground: 240 8% 7%;
+
+    --secondary: 240 6% 12%;
+    --secondary-foreground: 40 7% 83%;
+
+    --muted: 240 6% 12%;
+    --muted-foreground: 240 5% 50%;
+
+    --accent: 240 6% 14%;
+    --accent-foreground: 40 7% 83%;
+
+    --destructive: 0 72% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --success: 142 71% 55%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 38 92% 60%;
+    --warning-foreground: 0 0% 98%;
+
+    --border: 240 6% 14%;
+    --input: 240 6% 14%;
+    --ring: 240 5% 20%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* Custom Typography */
+.font-mono {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', monospace;
+}
+
+.font-sans {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Typing Test Styles */
+.typing-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.word-correct {
+  color: hsl(var(--success));
+}
+
+.word-incorrect {
+  color: hsl(var(--destructive));
+  background-color: hsl(var(--destructive) / 0.1);
+}
+
+.word-current {
+  background-color: hsl(var(--accent));
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+.word-pending {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Smooth transitions */
+.word-transition {
+  transition: all 0.15s ease-in-out;
+}
+
+/* Cursor animation */
+.typing-cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Stats animations */
+.stats-enter {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
