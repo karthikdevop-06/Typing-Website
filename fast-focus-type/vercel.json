@@ -4,5 +4,5 @@
       "NODE_ENV": "production"
     }
   },
-  "public": "dist/public"
+  "public": "client/dist/public"
 }
